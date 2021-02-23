@@ -1,0 +1,21 @@
+body {
+    background-image: linear-gradient(#f0eceb, #eca897);
+    background-repeat: no-repeat;
+};
+h1 {
+    color: rgb(231, 85, 33);
+};
+
+
+#mod{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 700px;
+    height: 600px;
+    position: fixed;
+    left: 30vw;
+    top: 10vh;
+    z-index: 999;
+    display: none;
+}

@@ -74,3 +74,17 @@ removeStag.onclick = function() {
 };
 
 
+
+// window.onstorage = event => {
+//     console.log(event);
+// };
+
+window.addEventListener('load', () => {
+    let number = parseInt(localStorage.length);
+    compt(number)
+    console.log(number);
+});
+
+function compt(x) {
+    return compteur = x
+}
