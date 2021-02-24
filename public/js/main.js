@@ -1,4 +1,15 @@
-console.log(localStorage);
+// animation
+let body = document.querySelector('body');
+var cursor = document.querySelector('.cursor');
+var cursor2 = document.querySelector('.cursor2');
+
+
+document.addEventListener("mousemove", function(e) {
+    cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+});
+
+// local storage
+console.log(localStorage); 
 
 let divStag = document.querySelector('#listStagiaires');
 let listStag = document.querySelector('.listStag');
@@ -64,7 +75,10 @@ ajouteStag.addEventListener('click', (e) => {
     let age = input[1].value
     let coding = input[2].value
     compteur++
-    add(nom, age, coding, compteur)
+    // add(nom, age, coding, compteur)
+    if (nom && age && coding) {
+        add(nom,age,coding,compteur)
+    }
 });
 
 // clear storage/refresh
@@ -73,18 +87,84 @@ removeStag.onclick = function() {
     location.reload()
 };
 
-
-
-// window.onstorage = event => {
-//     console.log(event);
-// };
-
+// refresh
 window.addEventListener('load', () => {
     let number = parseInt(localStorage.length);
     compt(number)
     console.log(number);
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let valeur = localStorage.getItem(key);
+        let final = JSON.parse(valeur)
+        add(final)
+    }
 });
 
 function compt(x) {
     return compteur = x
-}
+};
+
+// FILTRE
+let btnFilter = document.querySelector('.dropdown')
+let btnAll = document.querySelectorAll('.dropdown-item')[0]
+let btnFilter1 = document.querySelectorAll('.dropdown-item')[1]
+let btnFilter2 = document.querySelectorAll('.dropdown-item')[2]
+let btnFilter3 = document.querySelectorAll('.dropdown-item')[3]
+
+btnFilter1.addEventListener('click', ()=> {
+    console.log(localStorage);
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        let valeur = localStorage.getItem(c)
+        let final = JSON.parse(valeur)
+        let coding = final.coding
+        console.log(coding);
+        let finalFinal = coding.toLowerCase().split(" ").join("")
+        // console.log(finalFinal);
+        let lesLi = Array.from(listStag.children)
+        if (finalFinal !== "15") {
+            console.log(lesLi[i]);
+            lesLi[i].style.display = "none"
+        } else {
+            lesLi[i].style.display = "block"
+        }
+    }
+})
+
+btnFilter2.addEventListener('click', ()=> {
+    console.log(localStorage);
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        let valeur = localStorage.getItem(key)
+        let final = JSON.parse(valeur)
+        let coding = final.id
+        let finalFinal = coding.toLowerCase().split(" ").join("")
+        // console.log(finalFinal);
+        let lesLi = Array.from(liste.children)
+        if (finalFinal !== "16") {
+            console.log(lesLi[i]);
+            lesLi[i].style.display = "none"
+        } else {
+            lesLi[i].style.display = "block"
+        }
+    }
+})
+
+btnFilter3.addEventListener('click', ()=> {
+    console.log(localStorage);
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        let valeur = localStorage.getItem(key)
+        let final = JSON.parse(valeur)
+        let coding = final.id
+        let finalFinal = coding.toLowerCase().split(" ").join("")
+        // console.log(finalFinal);
+        let lesLi = Array.from(liste.children)
+        if (finalFinal !== "17") {
+            console.log(lesLi[i]);
+            lesLi[i].style.display = "none"
+        } else {
+            lesLi[i].style.display = "block"
+        }
+    }
+})
