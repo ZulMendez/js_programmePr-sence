@@ -48,6 +48,7 @@ let updateClock = () => {
     let date = new Date()
     let heure_actuelle = date.getHours();
     let minutes_actuelle = date.getMinutes()+1;
+    minutes_actuelle < 10 ? minutes_actuelle = `0${minutes_actuelle}` : minutes_actuelle
     let seconde_actuelle = date.getSeconds()+1
     seconde_actuelle < 10 ? seconde_actuelle = `0${seconde_actuelle}` : seconde_actuelle
     let hours = document.querySelector('#hours')
@@ -66,6 +67,7 @@ let minutes_actuelle = date.getMinutes()+1;
 let seconde_actuelle = date.getSeconds()+1
 mois < 10 ? mois = `0${mois}` : mois
 seconde_actuelle < 10 ? seconde_actuelle = `0${seconde_actuelle}` : seconde_actuelle
+
 
 
 // EVENT

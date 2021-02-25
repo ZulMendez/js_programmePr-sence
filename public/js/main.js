@@ -89,15 +89,15 @@ removeStag.onclick = function() {
 
 // refresh
 window.addEventListener('load', () => {
-    let number = parseInt(localStorage.length);
-    compt(number)
-    console.log(number);
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let valeur = localStorage.getItem(key);
         let final = JSON.parse(valeur)
-        add(final)
+        add(final, key)
     }
+    let number = parseInt(localStorage.length);
+    compt(number)
+    console.log(number);
 });
 
 function compt(x) {
@@ -117,7 +117,7 @@ btnFilter1.addEventListener('click', ()=> {
         let key = localStorage.key(i)
         let valeur = localStorage.getItem(c)
         let final = JSON.parse(valeur)
-        let coding = final.coding
+        let coding = final.nom
         console.log(coding);
         let finalFinal = coding.toLowerCase().split(" ").join("")
         // console.log(finalFinal);
@@ -137,10 +137,10 @@ btnFilter2.addEventListener('click', ()=> {
         let key = localStorage.key(i)
         let valeur = localStorage.getItem(key)
         let final = JSON.parse(valeur)
-        let coding = final.id
+        let coding = final.nom
         let finalFinal = coding.toLowerCase().split(" ").join("")
         // console.log(finalFinal);
-        let lesLi = Array.from(liste.children)
+        let lesLi = Array.from(listStag.children)
         if (finalFinal !== "16") {
             console.log(lesLi[i]);
             lesLi[i].style.display = "none"
@@ -156,10 +156,10 @@ btnFilter3.addEventListener('click', ()=> {
         let key = localStorage.key(i)
         let valeur = localStorage.getItem(key)
         let final = JSON.parse(valeur)
-        let coding = final.id
+        let coding = final.nom
         let finalFinal = coding.toLowerCase().split(" ").join("")
         // console.log(finalFinal);
-        let lesLi = Array.from(liste.children)
+        let lesLi = Array.from(listStag.children)
         if (finalFinal !== "17") {
             console.log(lesLi[i]);
             lesLi[i].style.display = "none"
